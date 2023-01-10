@@ -1,25 +1,30 @@
-/*
-function exibirMensagem(){
-    console.log('Ola!');
+type Direcao = "cima" | "baixo" | "esquerda" | "direita";
+
+type Movimento = {
+    direcao: Direcao;
+    passos: number;
 }
 
-exibirMensagem();
-*/
+type TipoPersonagem = "Mago" | "Elfo";
 
-// Parametros de entrada
-/*
-function exibirMensagem(mensagem: string, nome:string){
-    console.log(mensagem + nome);
+// Classe é uma estrutura e o centro de POO
+
+class Personagem{
+    nome: string;
+    tipo:TipoPersonagem;
+
+    constructor(nome:string, tipo:TipoPersonagem){
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+
+    caminhar(movimento:Movimento) {
+        console.log(`${this.nome} caminhou na direção ${movimento.direcao} e deu ${movimento.passos}`);
+    };
 }
 
-exibirMensagem('Parametro de entrada ', 'Luan');
-*/
+let gandalf = new Personagem("Gandalf", "Mago");
+let legolas = new Personagem("Legolas", "Elfo");
 
-// Retorno das funções
-function calcularNovoPreco(precoOriginal: number, taxaReajuste:number):number{
-    let novoPreco = precoOriginal * (1+taxaReajuste/100);
-    return novoPreco;
-}
-
-let precoAjustado = calcularNovoPreco(100,-50);
-console.log(precoAjustado);
+gandalf.caminhar({direcao: "cima", passos: 5});
+legolas.caminhar({direcao: "baixo", passos: 4});
