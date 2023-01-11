@@ -1,25 +1,10 @@
-/*
-function exibirMensagem(){
-    console.log('Ola!');
-}
+let coordenada: [number,number,string];
 
-exibirMensagem();
-*/
+coordenada = [10,20,'Teste'];
 
-// Parametros de entrada
-/*
-function exibirMensagem(mensagem: string, nome:string){
-    console.log(mensagem + nome);
-}
+console.log(coordenada[0]);
+console.log(coordenada[1]);
+console.log(coordenada[2]);
 
-exibirMensagem('Parametro de entrada ', 'Luan');
-*/
-
-// Retorno das funções
-function calcularNovoPreco(precoOriginal: number, taxaReajuste:number):number{
-    let novoPreco = precoOriginal * (1+taxaReajuste/100);
-    return novoPreco;
-}
-
-let precoAjustado = calcularNovoPreco(100,-50);
-console.log(precoAjustado);
+let [x,y,z] = coordenada;
+console.log(x,y,z);
