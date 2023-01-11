@@ -1,52 +1,41 @@
-abstract class OpcaoMenu{
-    imprimir(){
+"use strict";
+class OpcaoMenu {
+    imprimir() {
         console.log(this);
     }
 }
-class Personagem extends OpcaoMenu{
-    nome:string;
-    constructor(nome:string){
+class Personagem extends OpcaoMenu {
+    constructor(nome) {
         super();
         this.nome = nome;
     }
-
-    imprimir(){
+    imprimir() {
         console.log(`Classe personagem: ${this.nome}`);
     }
 }
-
-class Armamento{
-
+class Armamento {
 }
-
-class Mapa{
-    clima:string;
-    constructor(clima:string){
+class Mapa {
+    constructor(clima) {
         this.clima = clima;
     }
 }
-
-class Menu<T extends OpcaoMenu>{
-    private opcoes: T[] = [];
-
-    adicionarOpcao(opcao: T){
+class Menu {
+    constructor() {
+        this.opcoes = [];
+    }
+    adicionarOpcao(opcao) {
         this.opcoes.push(opcao);
     }
-
-    imprimirOpcoes(){
+    imprimirOpcoes() {
         this.opcoes.forEach(opcao => console.log(opcao.imprimir()));
     }
 }
-
 let p1 = new Personagem('Lucas');
 let p2 = new Personagem('Lixo');
-
 let m1 = new Mapa('Deserto');
 let m2 = new Mapa('Gelo');
-
-let menu = new Menu<Personagem>();
-
+let menu = new Menu();
 menu.adicionarOpcao(p1);
 menu.adicionarOpcao(p2);
-
 menu.imprimirOpcoes();
